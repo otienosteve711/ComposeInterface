@@ -23,9 +23,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import coil.compose.AsyncImage
 
-// ─────────────────────────────────────────────
-// MAIN SCREEN
-// ─────────────────────────────────────────────
+
 @Composable
 fun MediaShowcaseScreen() {
     Column(
@@ -48,7 +46,7 @@ fun MediaShowcaseScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                // ── 1. IMAGE ──────────────────────────────────
+
                 AsyncImage(
                     model = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
                     contentDescription = "Featured landscape image",
@@ -61,7 +59,7 @@ fun MediaShowcaseScreen() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // ── 2. VIDEO LABEL ────────────────────────────
+
                 Text(
                     text = "Watch the Scene",
                     fontSize = 16.sp,
@@ -72,7 +70,7 @@ fun MediaShowcaseScreen() {
                     textAlign = TextAlign.Start
                 )
 
-                // ── 3. VIDEO PLAYER ───────────────────────────
+
                 VideoPlayer(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -82,7 +80,7 @@ fun MediaShowcaseScreen() {
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // ── 4. DESCRIPTION ────────────────────────────
+
                 Text(
                     text = "Nestled among towering peaks and serene valleys, this breathtaking mountain landscape " +
                             "captures the raw beauty of nature. The crisp alpine air, lush meadows, and snow-capped " +
@@ -97,7 +95,7 @@ fun MediaShowcaseScreen() {
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // ── 5. BUTTONS ────────────────────────────────
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -106,7 +104,7 @@ fun MediaShowcaseScreen() {
                         onClick = {},
                         modifier = Modifier.weight(1f),
                         colors = ButtonDefaults.outlinedButtonColors(
-                            contentColor = MaterialTheme.colorScheme.error
+                            contentColor = MaterialTheme.colorScheme.primary
                         )
                     ) {
                         Text("Exit Screen")
@@ -130,9 +128,7 @@ fun MediaShowcaseScreen() {
     }
 }
 
-// ─────────────────────────────────────────────
-// VIDEO PLAYER
-// ─────────────────────────────────────────────
+
 @Composable
 fun VideoPlayer(modifier: Modifier = Modifier) {
     // context in which it should open
@@ -146,7 +142,7 @@ fun VideoPlayer(modifier: Modifier = Modifier) {
             // define the src of the video
             val mediaItem = MediaItem.fromUri(
                 Uri.parse(
-                    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    "https://pixabay.com/videos/download/video-319751_medium.mp4"
                 )
             )
             // set the media item
@@ -158,9 +154,7 @@ fun VideoPlayer(modifier: Modifier = Modifier) {
         }
     }
 
-    DisposableEffect(Unit) {
-        onDispose { exoPlayer.release() }
-    }
+
 
     AndroidView(
         factory = {
@@ -173,9 +167,7 @@ fun VideoPlayer(modifier: Modifier = Modifier) {
     )
 }
 
-// ─────────────────────────────────────────────
-// PREVIEW
-// ─────────────────────────────────────────────
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun MediaShowcaseScreenPreview() {
