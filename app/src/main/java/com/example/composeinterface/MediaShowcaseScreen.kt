@@ -112,11 +112,11 @@ fun MediaShowcaseScreen() {
 
                     Spacer(modifier = Modifier.width(12.dp))
 
-                    Button(
+                    OutlinedButton(
                         onClick = {},
                         modifier = Modifier.weight(1f),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = MaterialTheme.colorScheme.primary
                         )
                     ) {
                         Text("Export Details")
@@ -142,7 +142,7 @@ fun VideoPlayer(modifier: Modifier = Modifier) {
             // define the src of the video
             val mediaItem = MediaItem.fromUri(
                 Uri.parse(
-                    "https://pixabay.com/videos/download/video-319751_medium.mp4"
+                    "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
                 )
             )
             // set the media item
